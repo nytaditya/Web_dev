@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Book Store</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .header {
+            min-height: 100px;
+            background-color: #8b0000;
+            display: flex;
+            align-items: center;
+            padding: 12px 30px;
+            gap: 17px;
+            border-bottom: 4px solid #d9534f;
+        }
+
+        .logo-box {
+            width: 70px;
+            height: 70px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        .store-name {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 0.6px;
+            margin: 0;
+        }
+
+        .subtitle {
+            color: #f8d7da;
+            font-size: 12px;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        nav {
+            background-color: #ffffff;
+            text-align: center;
+            border-bottom: 1px solid #f5c6cb;
+            padding: 0 8px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #721c24;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 15px 17px;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #d9534f;
+            background-color: #fdf2f2;
+            border-bottom-color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-box">
+            <img src="../photos/lesgoo.webp"
+                 alt="GL Bajaj Logo"
+                 class="logo">
+        </div>
+
+        <div>
+            <div class="store-name">ONLINE BOOK STORE</div>
+            <div class="subtitle">
+                Your Gateway to Academic Knowledge
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="homepage.html" target="_parent">Home</a>
+        <a href="login.html" target="f3">Login</a>
+        <a href="registration.html" target="f3">Registration</a>
+        <a href="catalogue.html" target="f3">Catalogue</a>
+        <a href="cart.html" target="f3">Cart</a>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf2f2;
+            color: #333333;
+        }
+        h2 {
+            color: #8b0000;
+            text-align: center;
+        }
+        form {
+            background-color: white;
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        td {
+            padding: 8px;
+        }
+        input, select, textarea {
+            padding: 5px;
+            width: 95%;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: auto;
+            padding: 6px 18px;
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #d9534f;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["regForm"]["name"].value.trim();
+            var password = document.forms["regForm"]["password"].value;
+            var email = document.forms["regForm"]["email"].value.trim();
+            var phone = document.forms["regForm"]["phone"].value.trim();
+            
+            // 1. Name Validation: Only alphabets & minimum 6 characters[cite: 22]
+            var nameRegex = /^[A-Za-z\s]+$/;
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+            if (!nameRegex.test(name)) {
+                alert("Name should contain alphabets only.");
+                return false;
+            }
+            if (name.length < 6) {
+                alert("Name must be at least 6 characters long.");
+                return false;
+            }
+
+            // 2. Password Validation: Minimum 6 characters[cite: 22]
+            if (password === "") {
+                alert("Please enter a password.");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // 3. E-mail ID Validation: Standard pattern name@domain.com
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (email === "") {
+                alert("Please enter your e-mail ID.");
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid e-mail ID in the format name@domain.com.");
+                return false;
+            }
+
+            // 4. Phone Number Validation: Exactly 10 digits only
+            var phoneRegex = /^\d{10}$/;
+            if (phone === "") {
+                alert("Please enter your phone number.");
+                return false;
+            }
+            if (!phoneRegex.test(phone)) {
+                alert("Phone number should contain 10 digits only.");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form name="regForm" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <td>Name: <font color="red">*</font></td>
+                <td><input type="text" name="name" placeholder="Min 6 alphabets"></td>
+            </tr>
+            <tr>
+                <td>Password: <font color="red">*</font></td>
+                <td><input type="password" name="password" placeholder="Min 6 characters"></td>
+            </tr>
+            <tr>
+                <td>E-mail ID: <font color="red">*</font></td>
+                <td><input type="text" name="email" placeholder="name@domain.com"></td>
+            </tr>
+            <tr>
+                <td>Phone Number: <font color="red">*</font></td>
+                <td><input type="text" name="phone" placeholder="10 digits only"></td>
+            </tr>
+            <tr>
+                <td>Sex:</td>
+                <td>
+                    <input type="radio" name="sex" value="Male"> Male
+                    <input type="radio" name="sex" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td>
+                    <select name="day" style="width: 30%;">
+                        <option value="">Day</option>
+                        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    </select>
+                    <select name="month" style="width: 33%;">
+                        <option value="">Month</option>
+                        <option>January</option><option>February</option><option>March</option>
+                    </select>
+                    <select name="year" style="width: 30%;">
+                        <option value="">Year</option>
+                        <option>2000</option><option>2001</option><option>2002</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Languages Known:</td>
+                <td>
+                    <input type="checkbox" name="language" value="English"> English<br>
+                    <input type="checkbox" name="language" value="Telugu"> Telugu<br>
+                    <input type="checkbox" name="language" value="Hindi"> Hindi<br>
+                    <input type="checkbox" name="language" value="Tamil"> Tamil
+                </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <br>
+                    <input type="submit" value="Register">
+                    &nbsp;&nbsp;
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
